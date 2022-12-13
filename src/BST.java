@@ -69,6 +69,10 @@ class BST<T>
 
     public boolean AddKeyValue(int key, T val)
     {
+        if (Root == null) {
+            Root = new BSTNode<>(key, val, null);
+            return true;
+        }
         BSTFind<T> find = FindNodeByKey(key);
         if (find.NodeHasKey) { return false; }
         if (find.ToLeft) {

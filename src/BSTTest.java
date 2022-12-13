@@ -17,12 +17,12 @@ class BSTTest {
     @Test
     void test_add() {
         BSTNode<String> root = new BSTNode<String>(0,"root",null);
-        BST<String> sut = new BST<String>(root);
+        BST<String> sut = new BST<String>(null);
         sut.AddKeyValue(1, "1");
         sut.AddKeyValue(2, "2");
         sut.AddKeyValue(3, "3");
 
-        assertEquals(sut.Root.NodeKey, 0);
+        assertEquals(sut.Root.NodeKey, 1);
         assertEquals(sut.FindNodeByKey(1).Node.NodeValue, "1");
         assertEquals(sut.FindNodeByKey(2).Node.NodeValue, "2");
         assertEquals(sut.FindNodeByKey(3).Node.NodeValue, "3");
