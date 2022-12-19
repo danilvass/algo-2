@@ -90,6 +90,64 @@ class BST<T> {
         return foundNode;
     }
 
+    public ArrayList<BSTNode> WideAllNodes() {
+        ArrayList<BSTNode> list = new ArrayList<>();
+        if (Root == null) {
+            return list;
+        }
+
+        ArrayList<BSTNode> queue = new ArrayList<>();
+        queue.add(Root);
+
+        while (queue.size() > 0) {
+            BSTNode tempNode = queue.remove(0);
+            list.add(tempNode);
+
+            if (tempNode.LeftChild != null) {
+                queue.add(tempNode.LeftChild);
+            }
+            if (tempNode.RightChild != null) {
+                queue.add(tempNode.RightChild);
+            }
+        }
+        return list;
+    }
+
+    public ArrayList<BSTNode> DeepAllNodes(int order) {
+        if (order == 0) return inOrder(Root);
+        if (order == 1) return postOrder(Root);
+        if (order == 2) return preOrder(Root);
+
+        throw new IllegalArgumentException("Incorrect order: " + order);
+    }
+
+    private ArrayList<BSTNode> inOrder(BSTNode node) {
+        ArrayList<BSTNode> list = new ArrayList<>();
+        if (node == null) return list;
+        list.addAll(preOrder(node.LeftChild));
+        list.add(node);
+        list.addAll(preOrder(node.RightChild));
+        return list;
+    }
+
+    private ArrayList<BSTNode> preOrder(BSTNode node) {
+        ArrayList<BSTNode> list = new ArrayList<>();
+        if (node == null) return list;
+        list.add(node);
+        list.addAll(preOrder(node.LeftChild));
+        list.addAll(preOrder(node.RightChild));
+        return list;
+    }
+
+    private ArrayList<BSTNode> postOrder(BSTNode node) {
+        ArrayList<BSTNode> list = new ArrayList<>();
+        if (node == null) return list;
+        list.addAll(preOrder(node.LeftChild));
+        list.addAll(preOrder(node.RightChild));
+        list.add(node);
+        return list;
+    }
+
     //TODO: удалить этот костыль
     private class DeletionResult {
         boolean isDeleted = false;

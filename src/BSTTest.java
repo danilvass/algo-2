@@ -148,4 +148,28 @@ class BSTTest {
         sut.DeleteNodeByKey(13);
         assertEquals(7, sut.Count());
     }
+
+    @Test
+    void test_WideAllNodes() {
+        BSTNode<String> root = new BSTNode<String>(3,"3",null);
+        BST<String> sut = new BST<String>(root);
+        sut.AddKeyValue(2, "2");
+        sut.AddKeyValue(1, "1");
+        sut.AddKeyValue(4, "4");
+        sut.AddKeyValue(7, "7");
+        sut.AddKeyValue(6, "6");
+        sut.AddKeyValue(8, "8");
+        sut.AddKeyValue(9, "9");
+
+        ArrayList<BSTNode> list = sut.WideAllNodes();
+        ArrayList<BSTNode> in = sut.DeepAllNodes(0);
+        ArrayList<BSTNode> post = sut.DeepAllNodes(1);
+        ArrayList<BSTNode> pre = sut.DeepAllNodes(2);
+
+        System.out.println(in);
+        System.out.println(post);
+        System.out.println(pre);
+
+    }
+
 }
