@@ -154,9 +154,9 @@ class BSTTest {
         BSTNode<String> root = new BSTNode<String>(3,"3",null);
         BST<String> sut = new BST<String>(root);
         sut.AddKeyValue(2, "2");
-        sut.AddKeyValue(1, "1");
-        sut.AddKeyValue(4, "4");
-        sut.AddKeyValue(7, "7");
+        sut.AddKeyValue(4, "1");
+        sut.AddKeyValue(1, "4");
+        sut.AddKeyValue(5, "7");
         sut.AddKeyValue(6, "6");
         sut.AddKeyValue(8, "8");
         sut.AddKeyValue(9, "9");

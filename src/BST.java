@@ -124,9 +124,9 @@ class BST<T> {
     private ArrayList<BSTNode> inOrder(BSTNode node) {
         ArrayList<BSTNode> list = new ArrayList<>();
         if (node == null) return list;
-        list.addAll(preOrder(node.LeftChild));
+        list.addAll(inOrder(node.LeftChild));
         list.add(node);
-        list.addAll(preOrder(node.RightChild));
+        list.addAll(inOrder(node.RightChild));
         return list;
     }
 
@@ -142,8 +142,8 @@ class BST<T> {
     private ArrayList<BSTNode> postOrder(BSTNode node) {
         ArrayList<BSTNode> list = new ArrayList<>();
         if (node == null) return list;
-        list.addAll(preOrder(node.LeftChild));
-        list.addAll(preOrder(node.RightChild));
+        list.addAll(postOrder(node.LeftChild));
+        list.addAll(postOrder(node.RightChild));
         list.add(node);
         return list;
     }
