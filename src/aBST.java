@@ -6,7 +6,7 @@ class aBST
 
     public aBST(int depth)
     {
-        int tree_size = (int) (Math.pow(2, depth) - 1);
+        int tree_size = (int) (Math.pow(2, depth + 1) - 1);
         Tree = new Integer[ tree_size ];
         for(int i=0; i<tree_size; i++) Tree[i] = null;
     }

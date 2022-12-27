@@ -6,11 +6,11 @@ class aBSTTest {
 
     @Test
     void test_init() {
-        assertEquals(1, new aBST(1).Tree.length);
-        assertEquals(3, new aBST(2).Tree.length);
-        assertEquals(7, new aBST(3).Tree.length);
-        assertEquals(15, new aBST(4).Tree.length);
-        assertEquals(31, new aBST(5).Tree.length);
+        assertEquals(1, new aBST(0).Tree.length);
+        assertEquals(3, new aBST(1).Tree.length);
+        assertEquals(7, new aBST(2).Tree.length);
+        assertEquals(15, new aBST(3).Tree.length);
+        assertEquals(31, new aBST(4).Tree.length);
     }
 
     @Test
@@ -40,7 +40,7 @@ class aBSTTest {
 
     @Test
     void test_add() {
-        aBST sut = new aBST(3);
+        aBST sut = new aBST(2);
         assertEquals(0, sut.AddKey(50));
         assertEquals(1, sut.AddKey(25));
         assertEquals(2, sut.AddKey(75));
